@@ -1,9 +1,9 @@
 const LinksSocialMedia = {
   github: 'joicebarbosa',
-  youtube: 'jakelinygracielly',
+  youtube: 'youtube',
   facebook: 'joice_barbosa',
   instagram: 'joice_barbosa',
-  twitter: 'joice_barbosa'
+  twitter: 'joicevbarbosa'
 }
 
 function changeSocialMediaLinks() {
@@ -16,18 +16,19 @@ function changeSocialMediaLinks() {
   }
 }
 
-// i = i + 1
-// i++
-
-// ser humano 12345678910
-//computador 0123456789
-
 changeSocialMediaLinks()
 
 function getGitHubProfileInfos() {
   const url = `https://api.github.com/users/${LinksSocialMedia.github}`
 
- fetch(url).then()   
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    userName.textContent = data.name
+    userBio.textContent = data.bio
+    userLink.href = data.html_url
+   userLogin.textContent = data.login
+  })
 }
 
 getGitHubProfileInfos()
